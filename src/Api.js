@@ -1,16 +1,20 @@
-import 'dotenv/config';
-import express from 'express';
-import cors from 'cors';
-import rotear from './Rotas.js';
+import express from "express";
+import cors from "cors";
+
+import rotear from "./Rotas.js";
+
 
 const api = express();
 
+api.use(cors());
 
 api.use(express.json());
-api.use(cors());
 
 rotear(api);
 
-const port = process.env.PORT || 3000;
 
-api.listen(port, () => console.log(`Server rodando na porta ${port}!`));
+api.listen(3000, () => {
+    console.log(
+        "Server rodando na porta 3000!"
+    );
+});

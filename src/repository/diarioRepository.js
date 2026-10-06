@@ -54,3 +54,89 @@ export async function listarEntradas(
 
     return resultado;
 }
+
+export async function pesquisarEntradas(
+    usuario_id,
+    permissao,
+    pesquisa
+) {
+    let sql;
+    let parametros;
+
+    if (permissao === "admin") {
+        sql = `
+            SELECT *
+            FROM diario
+            WHERE texto LIKE ?
+            ORDER BY data DESC
+        `;
+
+        parametros = [`%${pesquisa}%`];
+    } else {
+        sql = `
+            SELECT *
+            FROM diario
+            WHERE usuario_id = ?
+            AND texto LIKE ?
+            ORDER BY data DESC
+        `;
+
+        parametros = [
+            usuario_id,
+            `%${pesquisa}%`
+        ];
+    }
+
+    const [resultado] = await con.query(
+        sql,
+        parametros
+    );
+
+    return resultado;
+}
+
+export async function buscarEntrada(id) {
+    const sql = `
+        SELECT *
+        FROM diario
+        WHERE id = ?
+    `;
+
+    const [resultado] = await con.query(
+        sql,
+        [id]
+    );
+
+    return resultado[0];
+}
+
+export async function editarEntrada(
+    id,
+    data,
+    texto
+) {
+    const sql = `
+        UPDATE diario
+        SET data = ?, texto = ?
+        WHERE id = ?
+    `;
+
+    await con.query(
+        sql,
+        [data, texto, id]
+    );
+
+    return buscarEntrada(id);
+}
+
+export async function excluirEntrada(id) {
+    const sql = `
+        DELETE FROM diario
+        WHERE id = ?
+    `;
+
+    await con.query(
+        sql,
+        [id]
+    );
+}
