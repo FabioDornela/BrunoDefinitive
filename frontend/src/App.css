@@ -1,0 +1,106 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #eeeeee;
+}
+
+button {
+  cursor: pointer;
+}
+
+.login-container {
+  width: 400px;
+  margin: 100px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h1 {
+  margin-bottom: 30px;
+}
+
+.login-container input {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+}
+
+.login-container button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: #222;
+  color: white;
+  border-radius: 6px;
+}
+
+.diario-container {
+  width: 800px;
+  max-width: 95%;
+  margin: 40px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.diario-container header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.diario-container header button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  background: #222;
+  color: white;
+}
+
+.diario-container label {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.diario-container input,
+.diario-container textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.diario-container textarea {
+  height: 250px;
+  resize: vertical;
+}
+
+.diario-container main > button {
+  margin-top: 15px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  background: #222;
+  color: white;
+}
+
+.entrada {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.entrada h3 {
+  margin-top: 0;
+}
